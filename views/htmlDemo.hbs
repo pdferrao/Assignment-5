@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEB700 HTML Demo</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/theme.css"> 
+</head>
+<body>
+   
+
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+
+
+                <header>
+                    <h1>HTML5 Demo</h1>
+                </header>
+
+                <section id="intro">
+                    <p>Welcome to the HTML5 demo section. Here, we showcase some of the powerful features and 
+                       elements introduced in HTML5.</p>
+                </section>
+
+                <section id="tables">
+                    <h2>Tables</h2>
+                    
+                    <table border="1">
+                        <caption>Table 1: Product Information</caption>
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>201</td>
+                                <td>Laptop</td>
+                                <td>$899.99</td>
+                            </tr>
+                            <tr>
+                                <td>202</td>
+                                <td>Smartphone</td>
+                                <td>$549.99</td>
+                            </tr>
+                            <tr>
+                                <td>203</td>
+                                <td>Tablet</td>
+                                <td>$699.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <table border="1">
+                        <caption>Table 2: Employee Information</caption>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Employee Name</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>101</td>
+                                <td>John Doe</td>
+                                <td>HR</td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>Jane Smith</td>
+                                <td>Marketing</td>
+                            </tr>
+                            <tr>
+                                <td>103</td>
+                                <td>Michael Johnson</td>
+                                <td>Finance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <p>This section demonstrates the use of HTML tables to present structured data. 
+                       Table 1 shows the Electronic Products information, including the product ID, product name 
+                       and price. Table 2 displays employee information such as employee ID, employee name and 
+                       department.</p>
+                </section>
+
+                
+                <section id="new-elements">
+                    <h2>Lists</h2>
+                    <p>HTML5 introduced several new lists that provide better structure and meaning to web content.
+                       These include:</p>
+                    <ul>
+                        <li><code>&lt;header&gt;</code>: Represents introductory content or a set of navigational links.</li>
+                        <li><code>&lt;nav&gt;</code>: Defines a set of navigation links.</li>
+                        <li><code>&lt;article&gt;</code>: Represents a self-contained piece of content that could be distributed independently.</li>
+                        <li><code>&lt;section&gt;</code>: Defines a section in a document.</li>
+                        <li><code>&lt;footer&gt;</code>: Represents footer content, typically containing information about the author or copyright information.</li>
+                    </ul>
+                </section>
+
+                <section id="multimedia">
+                    <h2>Multimedia Elements</h2>
+                    <p>HTML5 makes it easy to add multimedia content to web pages. 
+                       Some of the new multimedia elements include:</p>
+                    <ul>
+                        <li><code>&lt;audio&gt;</code>: Used to embed sound content.</li>
+                        <li><code>&lt;video&gt;</code>: Used to embed video content.</li>
+                        <li><code>&lt;img&gt;</code>: Used to embed images.</li>
+                    </ul>
+   
+                    <div class="demo">
+                        <h3>Audio Example</h3>
+                        <audio controls>
+                            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.mp3" type="audio/mp3">
+                        </audio>
+                        <p>This section includes an HTML5 audio player with an audio source format (MP3).</p>
+                    </div>
+
+                    <div class="demo">
+                        <h3>Video Example</h3>
+                        <video width="320" height="240" controls>
+                            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.mp4" type="video/mp4">
+                        </video>
+                        <p>This section includes an HTML5 video player with a video source format (MP4).</p>
+                    </div>
+                </section>
+
+                <section id="image-section">
+                    <h2>Image Examples</h2>
+                    <p>Below are the examples of images embedded in HTML:</p>
+                    
+                    <img src="https://thumbs.dreamstime.com/z/seneca-college-building-markham-canada-seneca-college-building-markham-canada-116088575.jpg" alt="Seneca Markham">
+                    <img src="https://1187604958.rsc.cdn77.org/data/images/full/27479/50-jpg.jpg" alt="Blue Mountains">
+                    <img src="https://illuzone.net/wp-content/uploads/2015/08/Niagara-Falls-in-Canada-most-amazing-waterfalls.jpg" alt="Niagara Falls">
+                    
+                    <p>This section contains three images with appropriate alt text, demonstrating 
+                       the use of the <code>&lt;img&gt;</code> element in HTML.</p>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
