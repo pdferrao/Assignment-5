@@ -6,19 +6,20 @@
 * 
 *  Name: Pamela Daisy Ferrao   Student ID: 138230230    Date: 2024-07-22
 
-*Online (vercel) link: 
+*Online (vercel) link: https://assignment-5-roan.vercel.app/
 
 ********************************************************************************/
 
-var express = require("express");
-var path = require("path");
-var exphbs = require("express-handlebars");
-var data = require("./modules/collegeData.js");
+var express = require("express"); // Importing the express module
+var path = require("path"); // Importing the path module
+var exphbs = require("express-handlebars"); // Importing the express-handlebars module
+var data = require("./modules/collegeData.js"); // Importing custom data module
 
-var app = express();
+var app = express(); // Creating an express application
 
-var HTTP_PORT = process.env.PORT || 8080;
+var HTTP_PORT = process.env.PORT || 8080; // Defining the port for the server
 
+// Setting up the handlebars view engine with custom helpers
 app.engine('.hbs', exphbs.engine({ 
     defaultLayout: 'main',
     extname: '.hbs',
@@ -40,30 +41,34 @@ app.engine('.hbs', exphbs.engine({
     }
 }));
 
-app.set('view engine', '.hbs');
+app.set('view engine', '.hbs'); // Setting the view engine to handlebars
 
-app.use(express.static("public"));
-app.use(express.urlencoded({extended: true}));
+app.use(express.static("public")); // Serving static files from the "public" directory
+app.use(express.urlencoded({extended: true})); // Parsing URL-encoded bodies
 
+// Middleware to set the active route for navigation
 app.use(function(req,res,next){
     let route = req.path.substring(1);
     app.locals.activeRoute = "/" + (isNaN(route.split('/')[1]) ? route.replace(/\/(?!.*)/, "") : route.replace(/\/(.*)/, ""));    
     next();
 });
 
-
+// Route for the home page
 app.get("/", (req,res) => {
     res.render("home");
 });
 
+// Route for the about page
 app.get("/about", (req,res) => {
     res.render("about");
 });
 
+// Route for the HTML demo page
 app.get("/htmlDemo", (req,res) => {
     res.render("htmlDemo");
 });
 
+// Route to display students, with optional course filtering
 app.get("/students", (req, res) => {
     if (req.query.course) {
         data.getStudentsByCourse(req.query.course).then((data) => {
@@ -80,17 +85,19 @@ app.get("/students", (req, res) => {
     }
 });
 
+// Route to display the add student form
 app.get("/students/add", (req,res) => {
     res.render("addStudent");
 });
 
-
+// Route to handle adding a student
 app.post("/students/add", (req, res) => {
     data.addStudent(req.body).then(()=>{
-      res.redirect("/students");
+        res.redirect("/students");
     });
-  });
+});
 
+// Route to display a specific student by student number
 app.get("/student/:studentNum", (req, res) => {
     data.getStudentByNum(req.params.studentNum).then((data) => {
         res.render("student", { student: data }); 
@@ -99,12 +106,14 @@ app.get("/student/:studentNum", (req, res) => {
     });
 });
 
+// Route to handle updating a student
 app.post("/student/update", (req, res) => {
     data.updateStudent(req.body).then(() => {
         res.redirect("/students");
     });
 });
 
+// Route to display courses
 app.get("/courses", (req,res) => {
     data.getCourses().then((data)=>{
         res.render("courses", {courses: data});
@@ -113,6 +122,7 @@ app.get("/courses", (req,res) => {
     });
 });
 
+// Route to display a specific course by ID
 app.get("/course/:id", (req, res) => {
     data.getCourseById(req.params.id).then((data) => {
         res.render("course", { course: data }); 
@@ -121,11 +131,12 @@ app.get("/course/:id", (req, res) => {
     });
 });
 
+// Default route for handling 404 errors
 app.use((req,res)=>{
     res.status(404).send("Page Not Found");
 });
 
-
+// Initialize the data and start the server
 data.initialize().then(function(){
     app.listen(HTTP_PORT, function(){
         console.log("app listening on: " + HTTP_PORT)
@@ -133,4 +144,3 @@ data.initialize().then(function(){
 }).catch(function(err){
     console.log("unable to start server: " + err);
 });
-
